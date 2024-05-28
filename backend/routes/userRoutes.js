@@ -69,8 +69,8 @@ userRoutes.post("/login", async (req, res) => {
             return res.status(500).send({ msg: "Secret key not defined" });
           }
           const token = jwt.sign(
-            { userID: user._id, owner: user.userName },
-            secretkey
+            { userID: user._id, username: user.username },
+            secretkey,  { expiresIn: '1h' }
           );
 
           res.status(200).send({

@@ -1,8 +1,11 @@
-
+import Registration from "./Components/registration";
+import MainRoutes from "./Routes/mainRoutes";
 
 function App() {
   return (
-    <div >     
+    <div>
+      <MainRoutes />
+    
     </div>
   );
 }

@@ -3,15 +3,13 @@ const app = express();
 const cors = require("cors");
 const { userRoutes } = require("./routes/userRoutes");
 const { connection } = require("./db");
-
+const subrouter = require("./routes/subscriptionRoute");
 
 app.use(cors());
 app.use(express.json());
 
 app.use("/userauth", userRoutes);
-
-
-
+app.use("/subscribe", subrouter);
 
 const PORT = process.env.PORT || 8000;
 
