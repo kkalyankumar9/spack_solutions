@@ -6,8 +6,7 @@ const initialState = {
     isAuth: false,
     token: localStorage.getItem("token") || ""
 };
-
-export const authReducer = (state = initialState, { type, payload }) => {
+ const authReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case SIGNUP_REQUEST:
         case SIGNIN_REQUEST:
@@ -42,3 +41,4 @@ export const authReducer = (state = initialState, { type, payload }) => {
             return state;
     }
 };
+export default authReducer; 

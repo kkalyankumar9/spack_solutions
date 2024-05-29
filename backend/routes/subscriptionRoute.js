@@ -35,7 +35,7 @@ subrouter.post("/create-plan", auth, async (req, res) => {
     // Calculate end date based on interval
     const endDate = calculateEndDate(startDate, interval);
 
-    // Find existing subscription for the same user and plan
+  
     let existingSubscription = await Subscription.findOne({ userID, plan });
 
     if (existingSubscription) {
@@ -61,13 +61,13 @@ subrouter.post("/create-plan", auth, async (req, res) => {
       userID,
     });
 
-    // Save the new subscription
+ 
     await subscription.save();
 
-    // Alert user and delete the old plan(s)
+  
     let oldSubscriptions = await Subscription.find({ userID, _id: { $ne: subscription._id } });
     if (oldSubscriptions.length > 0) {
-      // Delete old subscriptions (excluding the newly created one)
+   
       for (let sub of oldSubscriptions) {
         await Subscription.findByIdAndDelete(sub._id);
       }
@@ -83,4 +83,14 @@ subrouter.post("/create-plan", auth, async (req, res) => {
   }
 });
 
+subrouter.get("/getData", auth, async (req, res)=>{
+  try {
+    const data = await Subscription.find({ userID: req.body.userID });
+    res.status(200).send({"Data":data});
+    
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+
+})
 module.exports = subrouter;

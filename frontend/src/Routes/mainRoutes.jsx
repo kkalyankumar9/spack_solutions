@@ -7,6 +7,7 @@ import Login from '../Components/login'
 import PrivateRoute from './privateRoute'
 import SubscriptionsPlans from '../Components/subscribtions'
 import SubscriptionForm from '../Components/subform'
+import DisplayMovies from '../Components/displayMovies'
 
 const MainRoutes = () => {
   return (
@@ -16,7 +17,7 @@ const MainRoutes = () => {
         <Route path='/login'element={<Login/>}/>
         <Route path='/subscribtion_plans'element={<SubscriptionsPlans/>} />
         <Route path='/subscribes'element={<PrivateRoute><SubscriptionForm/></PrivateRoute>} />
-
+        <Route path='/displayMovies'element={<PrivateRoute><DisplayMovies/></PrivateRoute>} />
         
         </Routes>
   )

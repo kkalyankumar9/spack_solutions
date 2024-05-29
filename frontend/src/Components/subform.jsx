@@ -19,7 +19,7 @@ const SubscriptionForm = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:8000/subscribe/create-plan',
+        'https://spack-solutions.onrender.com/subscribe/create-plan',
         { plan, price, interval}, 
         { headers: { Authorization: ` ${token}` } } 
       );
