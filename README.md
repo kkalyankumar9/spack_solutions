@@ -1,8 +1,10 @@
 # MOVIES NOW
 # Deployed link
-
+https://movies-now-app.netlify.app/
 # Server Deployed link
 https://spack-solutions.onrender.com
+## movies JSON data link 
+https://ss-server-sec3.onrender.com/
 ## Tech Stack
 ## Frontend
 React.js,Redux & Tailwind CSS
@@ -26,3 +28,4 @@ Node.js,Express.js & MongoDB
 ![image](https://github.com/kkalyankumar9/spack_solutions/assets/112814583/b80b4b47-e4fb-4cd6-9cae-83eb6fa18d29)
 
 ## Short vedio
+https://drive.google.com/file/d/1yFCiaPgXC8-yZ7-E_o93HYT-k8vF5eAX/view?usp=sharing
