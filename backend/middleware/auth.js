@@ -13,12 +13,11 @@ const auth = async (req, res, next) => {
         return res.status(400).json({ msg: "Token blacklisted, login again" });
       }
       const decode = jwt.verify(token, process.env.SECRETKEY);
-     
+
       req.body.userID = decode.userID;
-      req.body.userName= decode.userName;
+      req.body.userName = decode.userName;
       next();
     }
-
   } catch (error) {
     res.status(500).send("Internal server error!");
     console.log(error);

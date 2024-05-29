@@ -10,7 +10,6 @@ userRoutes.post("/registration", async (req, res) => {
   const { userName, email, password } = req.body;
 
   try {
-   
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email.match(emailPattern)) {
       return res.status(400).send({ msg: "Invalid email format" });
@@ -27,14 +26,14 @@ userRoutes.post("/registration", async (req, res) => {
             res.status(400).send({ err: err });
           } else {
             const data = new UserModel({
-            
               userName,
               email,
               password: hash,
-              
             });
             await data.save();
-            res.status(200).send({ msg: "User registration successfully","data":data });
+            res
+              .status(200)
+              .send({ msg: "User registration successfully", data: data });
           }
         });
       } else {
@@ -70,7 +69,8 @@ userRoutes.post("/login", async (req, res) => {
           }
           const token = jwt.sign(
             { userID: user._id, userName: user.userName },
-            secretkey,{expiresIn:"1hr"}
+            secretkey,
+            { expiresIn: "1hr" }
           );
 
           res.status(200).send({
