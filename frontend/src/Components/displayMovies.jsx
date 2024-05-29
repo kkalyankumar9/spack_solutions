@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSubdata } from '../Redux/SubData/action';
+import SubscriptionsPlans from './subscribtions';
 
 const DisplayMovies = () => {
   const subData = useSelector((store) => store.SubReducer.subData);
@@ -31,6 +32,9 @@ const DisplayMovies = () => {
           "https://ss-server-sec3.onrender.com/2010",
           "https://ss-server-sec3.onrender.com/2020"
         ];
+      }else{
+        console.log("Subscribe to any plans");
+        return  <div></div>;
       }
 
       // Fetch data from all specified URLs
@@ -72,6 +76,7 @@ const DisplayMovies = () => {
 
       {isLoading ? (
         <div className="flex justify-center items-center h-64">
+            <div></div>
           <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-indigo-500"></div>
         </div>
       ) : (
@@ -90,7 +95,7 @@ const DisplayMovies = () => {
             ))
           ) : (
             <div className="col-span-1 sm:col-span-2 text-center text-xl text-gray-700">
-              {subData.length > 0 ? "No movies available for the selected year. Please upgrade your plan for more options." : "Loading..."}
+              {subData.length > 0 ? "No movies available for the selected year. Please upgrade your plan for more options." : "Subscribe to any plans"}
             </div>
           )}
         </div>
