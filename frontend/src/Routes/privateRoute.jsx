@@ -7,10 +7,13 @@ const PrivateRoute = ({ children }) => {
   const token = useSelector((store) => store.AuthReducer.token);
   const location = useLocation();
 
+ 
+
   return token ? (
+    // If authenticated, render the children
     children
   ) : (
-
+    // If not authenticated, navigate to the "/signin" route
     <Navigate to="/login" state={{ from: location }} replace />
   );
 };

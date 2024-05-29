@@ -4,9 +4,10 @@ const SubscriptionSchema = new mongoose.Schema({
   plan: { type: String, required: true },
   price: { type: Number, required: true },
   interval: { type: String, required: true },
-  stripeSubscriptionId: { type: String },
+  startDate: { type: String } ,
+  endDate:{type: String},
   userID: { type: String },
-  username: { type: String },
+  userName: { type: String },
 });
 
 const Subscription = mongoose.model("subscription", SubscriptionSchema);

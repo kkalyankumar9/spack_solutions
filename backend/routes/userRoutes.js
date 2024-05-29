@@ -7,7 +7,7 @@ const { BlackListModule } = require("../models/blackList");
 const userRoutes = express.Router();
 
 userRoutes.post("/registration", async (req, res) => {
-  const {  username, email, password } = req.body;
+  const { userName, email, password } = req.body;
 
   try {
    
@@ -27,14 +27,14 @@ userRoutes.post("/registration", async (req, res) => {
             res.status(400).send({ err: err });
           } else {
             const data = new UserModel({
-             
-              username,
+            
+              userName,
               email,
               password: hash,
-             
+              
             });
             await data.save();
-            res.status(200).send({ msg: "User registration successfully" });
+            res.status(200).send({ msg: "User registration successfully","data":data });
           }
         });
       } else {
@@ -69,8 +69,8 @@ userRoutes.post("/login", async (req, res) => {
             return res.status(500).send({ msg: "Secret key not defined" });
           }
           const token = jwt.sign(
-            { userID: user._id, username: user.username },
-            secretkey,  { expiresIn: '1h' }
+            { userID: user._id, userName: user.userName },
+            secretkey,{expiresIn:"1hr"}
           );
 
           res.status(200).send({
