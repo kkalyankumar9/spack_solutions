@@ -21,7 +21,7 @@ export const register = (signup_data) => async (dispatch) => {
     });
     const data = await res.json();
     dispatch({ type: SIGNUP_SUCCESS, payload: data });
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (err) {
     dispatch({ type: SIGNUP_ERROR, payload: err.message });
@@ -42,7 +42,7 @@ export const logIn = (signin_data) => async (dispatch) => {
     const data = await res.json();
     const { token } = data;
     dispatch({ type: SIGNIN_SUCCESS, payload: { token } });
-    console.log(token);
+    // console.log(token);
     return data;
   } catch (error) {
     dispatch({ type: SIGNIN_ERROR });

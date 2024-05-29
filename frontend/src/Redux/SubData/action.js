@@ -12,8 +12,8 @@ export const getSubdata = () => async (dispatch) => {
         throw new Error("Failed to fetch data");
       }
       const res = await response.json();
-    //   console.log(res.Data.monthly)
-      dispatch({ type: GET_SUCCESS, payload: res.Data }); // Dispatching data instead of response
+   
+      dispatch({ type: GET_SUCCESS, payload: res }); 
    
     } catch (error) {
       dispatch({ type: GET_ERROR });

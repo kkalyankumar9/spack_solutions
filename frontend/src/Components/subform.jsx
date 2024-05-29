@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const SubscriptionForm = () => {
   const [plan, setPlan] = useState('');
@@ -11,7 +12,7 @@ const SubscriptionForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const token = useSelector((store) => store.AuthReducer.token);
-
+const  navigate=useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -27,6 +28,7 @@ const SubscriptionForm = () => {
       console.log(response.data);
       console.log(response.token);
       toast.success('Subscription created successfully!');
+      navigate("/")
       // Handle success (e.g., redirect to payment page)
     } catch (error) {
       if (error.response && error.response.data && error.response.data.error) {
@@ -42,7 +44,9 @@ const SubscriptionForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white shadow-md rounded-md p-6">
+    
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-600 via-pi  nk-600 py-12 px-4 sm:px-6 lg:px-8">
+    <div className=" w-full max-w-md mx-auto bg-white shadow-md rounded-md p-6 ">
       <h2 className="text-xl font-semibold mb-4">Subscribe to a Plan</h2>
       <form onSubmit={handleSubmit}>
       <div className="mb-4">
@@ -83,7 +87,7 @@ const SubscriptionForm = () => {
             <option value="199">199</option> 
             <option value="999">999</option> 
             <option value="1299">1299</option>
-            <option value="499">499</option> 
+            <option value="499">299</option> 
             <option value="1299">1299</option> 
             <option value="1999">1999</option>
 
@@ -118,6 +122,7 @@ const SubscriptionForm = () => {
           {loading ? 'Submitting...' : 'Subscribe'}
         </button>
       </form>
+    </div>
     </div>
   );
 };

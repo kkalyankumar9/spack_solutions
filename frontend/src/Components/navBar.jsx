@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logoutUser } from '../Redux/Auth/action';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,9 @@ const Navbar = () => {
   };
 
   const handlelogOut = () => {
-    dispatch(logoutUser());
+    dispatch(logoutUser())
+    toast.success("You have successfully Logout.")
+    window.location.reload();
   };
 
   return (
@@ -29,19 +32,22 @@ const Navbar = () => {
             </div>
             <div className="hidden md:block">
               <div className="flex items-center space-x-4">
-                <Link to="/" className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-lg md:text-base font-medium">
+                <Link to="/" className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-2xl md:text-base font-medium">
                   Home
                 </Link>
+                <Link to="/subscribtion_plans" className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-2xl md:text-base font-medium">
+                  Plans
+                </Link>
                 {isAuth ? (
-                  <button onClick={handlelogOut} className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-lg md:text-base font-medium">
+                  <button onClick={handlelogOut} className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-2xl md:text-base font-medium">
                     Logout
                   </button>
                 ) : (
                   <>
-                    <Link to="/register" className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-lg md:text-base font-medium">
+                    <Link to="/register" className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-2xl md:text-base font-medium">
                       Registration
                     </Link>
-                    <Link to="/login" className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-lg md:text-base font-medium">
+                    <Link to="/login" className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-2xl md:text-base font-medium">
                       Login
                     </Link>
                   </>
@@ -71,6 +77,9 @@ const Navbar = () => {
               <Link to="/" className="text-white hover:text-gray-100 block px-3 py-2 rounded-md text-lg md:text-base font-medium">
                 Home
               </Link>
+              <Link to="/subscribtion_plans" className="text-white hover:text-gray-100 px-3 py-2 rounded-md text-lg md:text-base font-medium">
+                  Plans
+                </Link>
               {isAuth ? (
                 <button onClick={handlelogOut} className="text-white hover:text-gray-100 block px-3 py-2 rounded-md text-lg md:text-base font-medium">
                   Logout

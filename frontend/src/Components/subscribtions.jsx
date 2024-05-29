@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from './navBar';
 
 const SubscriptionsPlans = () => {
-  // Define an array of subscription plans
+  
   const navigate=useNavigate()
   const subscriptionPlans = [
     {
@@ -65,7 +66,9 @@ const SubscriptionsPlans = () => {
     navigate("/subscribes")
   }
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <>
+    <Navbar/>
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 m-2 shadow-lg ">
       {/* Map over the subscriptionPlans array */}
       {subscriptionPlans.map((plan, index) => (
         <div key={index} className="flex flex-col rounded-lg shadow-lg overflow-hidden bg-white">
@@ -78,17 +81,18 @@ const SubscriptionsPlans = () => {
               </div>
             </div>
             <div className="mt-6">
-              <p className="text-xl text-gray-500">{plan.description}</p>
+              <p className="text-2xl text-center text-gray-500">{plan.description}</p>
             </div>
           </div>
-          <div className="px-6 py-4 bg-gray-50">
-            <button onClick={handleClick} className="w-full rounded-md bg-indigo-600 text-white py-2 px-4 text-sm font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <div className="px-6 py-4 bg-gray-50 " >
+            <button onClick={handleClick} className="w-full rounded-md bg-indigo-600 text-white py-2 px-4 text-xl font-semibold hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Choose {plan.name}
             </button>
           </div>
         </div>
       ))}
     </div>
+    </>
   );
 };
 
