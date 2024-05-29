@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { logIn } from "../Redux/Auth/action";
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from "./navBar";
 
 const Login = () => {
   const initialData = {
@@ -67,6 +68,8 @@ const Login = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div className="bg-white p-10 rounded-lg shadow-lg">
@@ -129,6 +132,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
