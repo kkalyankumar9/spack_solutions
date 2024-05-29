@@ -86,7 +86,7 @@ subrouter.post("/create-plan", auth, async (req, res) => {
 subrouter.get("/getData", auth, async (req, res)=>{
   try {
     const data = await Subscription.find({ userID: req.body.userID });
-    res.status(200).send({"data":data});
+    res.status(200).send(data);
     
   } catch (error) {
     res.status(500).json({ error: error.message });
