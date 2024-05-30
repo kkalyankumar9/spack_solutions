@@ -11,7 +11,6 @@ React.js,Redux & Tailwind CSS
 ## Backend
 Node.js,Express.js & MongoDB
 
-![image](https://github.com/kkalyankumar9/spack_solutions/assets/112814583/33898faf-db6a-4f82-9374-e4a1638e2703)
 ## Home page
 ![image](https://github.com/kkalyankumar9/spack_solutions/assets/112814583/d8f980bf-cbc4-45c1-8a9b-41d6929928e4)
 ## Register page
